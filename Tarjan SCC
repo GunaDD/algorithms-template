@@ -1,0 +1,50 @@
+const int MAXN = 30;
+
+stack<int> stk;
+bool onStack[MAXN];
+vvi adj(MAXN);
+int ids[MAXN], low[MAXN];
+int sccCount = id = 0;
+
+void predefine()
+{
+	id = sccCount = 0;
+	memset(ids, -1 ,sizeof ids);
+	memset(low, 0, sizeof low);
+	memset(onStack, false, sizeof onStack);
+	L(i, 0, MAXN)
+		adj[i].clear();
+	stk.empty();
+}
+
+void dfs(int at){
+	stk.push(at);
+	onStack[at] = true;
+	ids[at] = low[at] = ++id;
+	for(auto to : adj[at])
+	{
+		if(ids[to] == -1) dfs(to);
+		if(onStack[to]) low[at] = min(low[at], low[to]);
+	}
+	if(ids[at] == low[at])
+	{
+		
+		while(!stk.empty())
+		{
+			int node = stk.top();
+			stk.pop();
+			onStack[node] = false;
+			low[node] = ids[at];
+			scc[sccCount].pb(node);
+			if(node == at) break;
+		}
+		sccCount++;
+	}
+}
+
+void solve()
+{
+	predefine();
+	L(i, 0, n)
+		if(ids[i] == -1) dfs(i);
+}
