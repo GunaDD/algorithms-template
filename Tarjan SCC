@@ -45,6 +45,8 @@ void dfs(int at){
 void solve()
 {
 	predefine();
+	// input the adjacency list
 	L(i, 0, n)
 		if(ids[i] == -1) dfs(i);
+	// output
 }
