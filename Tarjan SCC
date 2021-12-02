@@ -46,7 +46,7 @@ void solve()
 {
 	predefine();
 	// input the adjacency list
-	L(i, 0, n)
+	L(i, 1, v+1) // v = number of vertex
 		if(ids[i] == -1) dfs(i);
 	// output
 }
