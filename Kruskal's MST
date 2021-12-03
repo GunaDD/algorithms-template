@@ -37,7 +37,6 @@ void solve()
 	sort(edge.begin(), edge.end());
 
 	int mst_cost = 0, edge_count = 0;
-	bool ok = false;
 	DSU s(v);
 	for(auto ed: edge)
 	{
