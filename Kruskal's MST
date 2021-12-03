@@ -1,3 +1,86 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+#ifndef ONPC
+	#define _GLIBCXX_DEBUG
+#endif
+
+#ifdef _GLIBCXX_DEBUG
+	void debug_print(string s) {
+		cerr << "\"" << s << "\"";
+	}
+
+	void debug_print(const char* s) {
+		debug_print((string)s);
+	}
+
+	void debug_print(bool val) {
+		cerr << (val ? "true" : "false");
+	}
+
+	void debug_print(int val) {
+		cerr << val;
+	}
+
+	void debug_print(ll val) {
+		cerr << val;
+	}
+
+	template<typename F, typename S>
+	void debug_print(pair<F, S> val) {
+		cerr << "(";
+		debug_print(val.first);
+		cerr << ", ";
+		debug_print(val.second);
+		cerr << ")";
+	}
+
+	void debug_print(vector<bool> val) {
+		cerr << "{";
+		bool first = true;
+		for (bool x : val) {
+			if (!first) {
+				cerr << ", ";
+			} else {
+				first = false;
+			}
+			debug_print(x);
+		}
+		cerr << "}";
+	}
+
+	template<typename T>
+	void debug_print(T val) {
+		cerr << "{";
+		bool first = true;
+		for (const auto &x : val) {
+			if (!first) {
+				cerr << ", ";
+			} else {
+				first = false;
+			}
+			debug_print(x);
+		}
+		cerr << "}";
+	}
+
+	void debug_print_collection() {
+		cerr << endl;
+	}
+
+	template<typename First, typename... Args>
+	void debug_print_collection(First val, Args... args) {
+		cerr << " ";
+		debug_print(val);
+		debug_print_collection(args...);
+	}
+
+#define debug(...) cerr << "@@@ " << #__VA_ARGS__ << " ="; debug_print_collection(__VA_ARGS__);
+#else
+	#define debug(...) 
+#endif
+
 vector<pair<int, pair<int,int>>> edge;
 struct DSU {
 	vector<int> pr;
@@ -35,22 +118,34 @@ void solve()
 		edge.push_back({w, {st, end}});
 	}
 	sort(edge.begin(), edge.end());
-
-	int mst_cost = 0, edge_count = 0;
-	DSU s(v);
+	DSU s(v+1); // +1 for 1 based indexing
+	vector<pair<int, int>> mst_pair;
 	for(auto ed: edge)
 	{
 		int w = ed.first, st = ed.second.first, end = ed.second.second;
 		if(s.findpr(st) != s.findpr(end))
 		{
 			s.unite(st, end);
-			mst_cost += w;
-			edge_count++;
+			// do whatever operations needed (ex-> find cost of MST, recall MST pairs, check if it is a tree, etc ...)
 		}		
 
 	}
-	if(edge_count < v - 1) // check if there is an MST or no
-		cout << "No MST\n";
-	else 
-		cout << mst_cost << '\n';
+	// output
+}
+
+
+
+int main()
+{
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	freopen("error.txt", "w", stderr);
+	#endif
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	 	
+ 	int tc=1;
+ 	// cin >> tc;
+ 	while(tc--) solve();
+
 }
