@@ -1,6 +1,8 @@
 int n, MAXN;
 int t[4*MAXN];
 
+// v = current vertex, tl = left boundary, tr = right boundary
+// tl = 0, tr = n-1, v = 1
 void build(int a[], int v, int tl, int tr) {
     if (tl == tr) {
         t[v] = a[tl];
