@@ -11,5 +11,6 @@ ll powmod(ll a, ll b) {
 
 // Combinatorics n C k -> modular inverse with fermat's little theorem
 ll combinmod(ll a, ll b) {
+    if(a < b) return 0;
     return (((fact[a] * powmod(fact[b], M - 2)) % M) * powmod(fact[a - b], M - 2)) % M;
 }
