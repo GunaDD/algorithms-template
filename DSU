@@ -1,26 +1,23 @@
-struct DSU {
-	vector<int> pr;
-	int n;
+// working code : codeforces.com/contest/292/submission/145601773
+template<typename T>
+struct dsu {
+    vector<T> pr;
+    T n;
+    dsu(T n) : n(n) {
+        pr.resize(n);
+        iota(pr.begin(), pr.end(), 0);
+    }
 
-	DSU(int n) : n(n) {
-		pr.resize(n);
-		iota(pr.begin(), pr.end(), 0);
-	}
+    T findpr(T v){
+        return pr[v] = (v == pr[v] ? v : findpr(pr[v]));
+    }
 
-	inline int findpr(int v) {
-		return (v == pr[v] ? v : (pr[v] = findpr(pr[v])));
-	}
-
-	inline bool unite(int v, int u) {
-		v = findpr(v);
-		u = findpr(u);
-		if (u == v) {
-			return false;
-		} else {
-			pr[v] = u;
-			return true;
-		}
-	}
+    bool merge(T v, T u){
+        v = findpr(v);
+        u = findpr(u);
+        if(u == v)
+            return 0;
+        pr[v] = u;
+        return 1;
+    }
 };
-
-// for Kruskal's MST -> sort the edge in the edge list based on edge weight
