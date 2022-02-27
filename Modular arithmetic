@@ -30,8 +30,8 @@ ll C(ll a, ll b){
 int main(){
     cin.tie(0) -> ios_base::sync_with_stdio(0);
 
-    fact[1] = 1;
-    for(int i=2;i<N;i++)
+    fact[0] = 1;
+    for(int i=1;i<N;i++)
         fact[i] = fact[i-1] * i % M;
 
     inv[1] = 1;
