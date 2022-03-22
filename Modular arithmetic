@@ -5,7 +5,7 @@ typedef long long ll;
 const int N = 1e5;
 const int M = 1e9 + 7;
 ll fact[N], inv[N];
-ll powmod(ll a, ll b){
+ll pw(ll a, ll b){
     ll r=1;
     while(b){
         if(b&1)r=r*a%M;
@@ -18,7 +18,7 @@ ll powmod(ll a, ll b){
 // // O(log n)
 // ll C(ll a, ll b){
 //     if(a < b) return 0;
-//     return ((fact[a] * powmod(fact[b], M-2)) % M) * powmod(fact[a-b], M-2) % M;
+//     return ((fact[a] * pw(fact[b], M-2)) % M) * pw(fact[a-b], M-2) % M;
 // }
 
 // O(1)
