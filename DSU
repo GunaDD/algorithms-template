@@ -1,4 +1,4 @@
-// working code : codeforces.com/contest/292/submission/145601773
+// verify : codeforces.com/contest/292/submission/145601773
 template<typename T>
 struct dsu {
     vector<T> pr;
