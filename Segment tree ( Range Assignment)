@@ -1,0 +1,90 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MX = 2e5 + 1;
+
+struct Segtree {
+    vector<int> t, lazy;
+    int n;
+
+    Segtree(int n) : n(n)
+    {
+        t.resize(4 * n);
+        lazy.assign(4 * n, -1);
+    }
+
+    int add(int a, int b)
+    {
+        return (a + b);
+    }
+
+    void push(int v, int l, int r)
+    {
+        if(lazy[v] != -1)
+        {
+            t[v] = (r - l + 1) * lazy[v];
+            if(l != r)
+            {
+                lazy[v * 2] = lazy[v];
+                lazy[v * 2 + 1] = lazy[v];
+            }
+            lazy[v] = -1;
+        }
+    }
+
+    void update(int v, int l, int r, int ql, int qr, int val)
+    {
+        push(v, l, r);
+        if(l > qr || r < ql) return;
+        if(ql <= l && qr >= r)
+        {
+            lazy[v] = val;
+            push(v, l, r);
+            return;
+        }
+        int mid = (l + r) / 2;
+        update(v * 2, l, mid, ql, qr, val);
+        update(v * 2 + 1, mid + 1, r , ql, qr, val);
+        t[v] = add(t[v * 2], t[v * 2 + 1]);
+    }   
+
+    int query(int v, int l, int r, int ql, int qr)
+    {
+        push(v, l, r);
+        if(l > qr || r < ql) return 0;
+        if(ql <= l && qr >= r) return t[v];
+        int mid = (l + r) / 2;
+        return add(query(v * 2, l, mid, ql, qr), query(v * 2 + 1, mid + 1, r, ql, qr));
+    }
+
+};
+
+
+int main(){
+    cin.tie(0) -> ios_base::sync_with_stdio(0);
+
+    Segtree st(MX);
+    int q;
+    cin >> q;
+    while(q--)
+    {
+        int t;
+        cin >> t;
+        if(t == 1)
+        {
+            int a, b, v;
+            cin >> a >> b >> v;
+            st.update(1, 1, MX, a, b, v);
+        }   
+        else
+        {
+            int a, b;
+            cin >> a >> b;
+            cout << st.query(1, 1, MX, a, b) << '\n';
+        }
+    }
+
+        
+    
+}                                                           
