@@ -3,7 +3,7 @@ using namespace std;
 typedef long long ll;
 
 const int MX = 2e5 + 1;
-
+// unverified
 struct Segtree {
     vector<int> t, lazy;
     int n;
