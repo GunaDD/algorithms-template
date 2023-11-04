@@ -1,7 +1,0 @@
-// calculating number of b'th bit set from numbers 1 to a
-int cal(int a, int b) {
-    int c = (1 << (b + 1));
-    ll cur = (1 << b) * (a / c); a %= c;
-    if (a >= c / 2) cur += (a - c / 2 + 1);
-    return cur;
-}
