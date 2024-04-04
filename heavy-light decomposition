@@ -19,3 +19,9 @@ void dfs_hld(int v = 0) {
 }
 
 https://codeforces.com/blog/entry/53170
+
+/* 
+up -> up -> ... -> up ( log n kali )
+dia query membentuk kea contigous subsegment di segment tree
+hemat memori
+*/
