@@ -17,3 +17,5 @@ void dfs_hld(int v = 0) {
     }
     out[v] = t;
 }
+
+https://codeforces.com/blog/entry/53170
