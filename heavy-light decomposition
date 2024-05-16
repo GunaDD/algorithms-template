@@ -9,7 +9,8 @@ void dfs_sz(int v = 0) {
         }
 }
 
-// nxt[u] adalah ancestor terdekat dimana dia itu heavy vertex
+// nxt[u] adalah ancestor terjauh yang bisa di capai hanya menggunakan heavy edge
+// light edge bagi subtree size dengan 2
 
 void dfs_hld(int v = 0) {
         in[v] = t++;
@@ -24,7 +25,8 @@ https://codeforces.com/blog/entry/53170
 
 /* 
 up -> up -> ... -> up ( log n kali )
-kalau mau up pake nxt[u]
+[in(v),out(v)) subtree si v
+[in(nxt(v)),in(v)] path si v ke atas
 dia query membentuk kea contigous subsegment di segment tree
 hemat memori
 */
