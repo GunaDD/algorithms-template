@@ -1,4 +1,10 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
 using matrix = array<array<ll, 5>, 5>;
+
+const int mod = 1e9 + 7;
 
 matrix mult(matrix a, matrix b) {
       matrix c = {{ 
@@ -37,4 +43,8 @@ matrix matPow(matrix a, ll k) {
       }
 
       return res;
+}
+
+int main() {
+
 }

@@ -1,3 +1,10 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MX = 2e5 + 5;
+
+int N;
+
 struct fenwick {
         int t[MX];
 
@@ -15,3 +22,7 @@ struct fenwick {
                 return que(r)-que(l-1);
         }
 } ft;
+
+int main() {
+        N = 5;
+}

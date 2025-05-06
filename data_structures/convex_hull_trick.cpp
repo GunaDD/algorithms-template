@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
 vector<pair<ll,ll>> line;
 
 double isec(int x, int y)  {
@@ -36,3 +40,6 @@ ll qry(ll x) {
         return res;
 }
 
+int main() {
+        
+}

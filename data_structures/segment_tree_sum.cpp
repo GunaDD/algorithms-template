@@ -1,3 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+const int MX = 2e5 + 5;
+
 struct segtree {
         int t[4 * MX];
  
@@ -20,3 +26,7 @@ struct segtree {
                 return query(v * 2 + 0, l, mid + 0, ql, qr) + query(v * 2 + 1, mid + 1, r, ql, qr);
         }
 } st;
+
+int main() {
+        
+}

@@ -1,4 +1,12 @@
-vector<int> order;
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MX = 2e5 + 5;
+
+bool used[MX];
+vector<int> adj[MX], adj_rev[MX];
+
+vector<int> order, component;
 
 void dfs1(int v) {
 	used[v] = true;
@@ -18,4 +26,8 @@ void dfs2(int v) {
 	for (auto u : adj_rev[v])
 		if (!used[u])
         		dfs2(u);
+}
+
+int main() {
+
 }

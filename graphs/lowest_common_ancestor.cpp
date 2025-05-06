@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 const int MX=2e5+5,K=18;
 
 int up[MX][K], tin[MX], tout[MX], timer = 1, sz[MX];
@@ -35,4 +38,8 @@ int LCA(int u, int v) {
                 if(!isAnc(u, up[v][k]) && up[v][k] != 0) v = up[v][k];
         }
         return up[v][0];
+}
+
+int main() {
+        
 }

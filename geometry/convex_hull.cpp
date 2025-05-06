@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
 #define P pair<ll,ll>
 #define X first
 #define Y second
@@ -45,4 +50,8 @@ vector<P> ch(vector<P> pt) {
       for(auto x : vv) v.push_back(x);
 
       return v;
+}
+
+int main() {
+      
 }

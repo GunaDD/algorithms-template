@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
 // fast set from https://codeforces.com/blog/entry/118391
 // basically just 2 priority queues = 1 set
 
@@ -22,3 +26,9 @@ struct FastSet {
         return pq.top();
     }
 };
+
+
+int main() {
+    FastSet<pair<int,int>> pqA, pqB;
+    
+}

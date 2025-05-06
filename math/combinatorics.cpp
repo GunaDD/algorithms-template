@@ -1,3 +1,10 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MX = 2e5 + 5; /* change as needed */
+const int mod = 1e9 + 7;
+
 ll fact[MX], inv[MX];
 
 ll pw(ll a, ll b) {
@@ -20,4 +27,8 @@ void precompute() {
 
         inv[MX - 1] = pw(fact[MX - 1], mod - 2);
         for(int i = MX - 2; i >= 0; i--) inv[i] = inv[i + 1] * (i + 1) % mod;
+}
+
+int main() {
+        
 }

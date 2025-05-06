@@ -1,3 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MX = 2e5 + 5;
+
+int sz[MX], nxt[MX], in[MX], out[MX];
+vector<int> g[MX];
+
+int t = 0;
+
 void dfs_sz(int v = 0) {
         sz[v] = 1;
         for(auto &u: g[v]) {
@@ -21,7 +31,7 @@ void dfs_hld(int v = 0) {
         out[v] = t;
 }
 
-https://codeforces.com/blog/entry/53170
+// https://codeforces.com/blog/entry/53170
 
 /* 
 up -> up -> ... -> up ( log n kali )
@@ -30,3 +40,7 @@ up -> up -> ... -> up ( log n kali )
 dia query membentuk kea contigous subsegment di segment tree
 hemat memori
 */
+
+int main() {
+
+}

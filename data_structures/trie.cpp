@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 struct Trie {
       struct Vertex {
             int next[2];
@@ -36,3 +39,7 @@ struct Trie {
       }
 
 } trie;
+
+int main() {
+      
+}
